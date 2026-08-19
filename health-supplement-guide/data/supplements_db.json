@@ -1,0 +1,696 @@
+{
+  "supplements": [
+    {
+      "name": "Creatine",
+      "category": "Performance",
+      "description": "Naturally occurring compound that helps regenerate ATP for explosive energy. Most researched sports supplement.",
+      "default_dosage": "5g",
+      "timing": "morning",
+      "benefits": "Increases strength, power output, and muscle hydration. May support cognitive function.",
+      "warnings": "Stay well hydrated. Some water retention initially is normal."
+    },
+    {
+      "name": "Whey Protein",
+      "category": "Protein",
+      "description": "Fast-absorbing protein derived from milk. Rich in leucine for muscle protein synthesis.",
+      "default_dosage": "25-30g",
+      "timing": "post_workout",
+      "benefits": "Supports muscle recovery and growth. Convenient way to meet daily protein targets.",
+      "warnings": "Avoid if lactose intolerant. Check for added sugars in flavored versions."
+    },
+    {
+      "name": "Casein Protein",
+      "category": "Protein",
+      "description": "Slow-digesting protein from milk. Provides sustained amino acid release over several hours.",
+      "default_dosage": "30-40g",
+      "timing": "before_sleep",
+      "benefits": "Ideal for overnight muscle recovery. Promotes satiety.",
+      "warnings": "Avoid if lactose intolerant. May cause bloating in some individuals."
+    },
+    {
+      "name": "Multivitamin",
+      "category": "Vitamin",
+      "description": "Comprehensive blend of essential vitamins and minerals to fill nutritional gaps.",
+      "default_dosage": "1 tablet",
+      "timing": "morning",
+      "benefits": "Covers micronutrient deficiencies. Supports overall health and immune function.",
+      "warnings": "Take with food. Do not exceed recommended dose. May cause nausea on empty stomach."
+    },
+    {
+      "name": "Fish Oil",
+      "category": "Fatty Acid",
+      "description": "Source of omega-3 fatty acids EPA and DHA for cardiovascular and brain health.",
+      "default_dosage": "1000mg EPA+DHA",
+      "timing": "morning",
+      "benefits": "Reduces inflammation, supports heart health, improves brain function.",
+      "warnings": "Take with meals. High doses may increase bleeding risk. Check for mercury-free certification."
+    },
+    {
+      "name": "Omega-3",
+      "category": "Fatty Acid",
+      "description": "Synonymous with fish oil. May also come from algae (vegan source).",
+      "default_dosage": "1000-2000mg",
+      "timing": "morning",
+      "benefits": "Anti-inflammatory, cardiovascular support, cognitive health.",
+      "warnings": "Check EPA/DHA ratio. Algae-based may be lower in EPA."
+    },
+    {
+      "name": "Vitamin D",
+      "category": "Vitamin",
+      "description": "Fat-soluble vitamin essential for calcium absorption, bone health, and immune function.",
+      "default_dosage": "2000-4000 IU",
+      "timing": "morning",
+      "benefits": "Supports bone density, mood, immune system. Many people are deficient.",
+      "warnings": "Take with fat-containing meal. Get blood levels tested. Toxicity possible at very high doses."
+    },
+    {
+      "name": "Magnesium",
+      "category": "Mineral",
+      "description": "Essential mineral involved in 300+ enzymatic reactions. Glycinate and citrate forms are preferred.",
+      "default_dosage": "400mg",
+      "timing": "before_sleep",
+      "benefits": "Improves sleep quality, reduces muscle cramps, supports relaxation and recovery.",
+      "warnings": "May cause loose stools at high doses (oxide form). Glycinate is gentler on stomach."
+    },
+    {
+      "name": "Zinc",
+      "category": "Mineral",
+      "description": "Essential trace mineral crucial for immune function, testosterone production, and wound healing.",
+      "default_dosage": "15-30mg",
+      "timing": "before_sleep",
+      "benefits": "Supports immune health, hormone balance, and recovery.",
+      "warnings": "Do not exceed 40mg/day. Take with food to avoid nausea. Can cause copper deficiency at high doses."
+    },
+    {
+      "name": "Iron",
+      "category": "Mineral",
+      "description": "Essential mineral for oxygen transport in blood. Critical for athletes, especially menstruating women.",
+      "default_dosage": "18-27mg",
+      "timing": "morning",
+      "benefits": "Prevents iron-deficiency anemia, improves energy and endurance.",
+      "warnings": "Take on empty stomach with vitamin C. Avoid with calcium, coffee, tea. Can be dangerous if not deficient - get tested first."
+    },
+    {
+      "name": "Calcium",
+      "category": "Mineral",
+      "description": "Most abundant mineral in the body. Essential for bone health, muscle contraction, and nerve function.",
+      "default_dosage": "500-1000mg",
+      "timing": "morning",
+      "benefits": "Supports bone density and dental health. Important for muscle function.",
+      "warnings": "Split doses for better absorption. Do not take with iron or zinc. Excess may increase kidney stone risk."
+    },
+    {
+      "name": "BCAA",
+      "category": "Amino Acid",
+      "description": "Branched-Chain Amino Acids (Leucine, Isoleucine, Valine). Popular intra-workout supplement.",
+      "default_dosage": "5-10g",
+      "timing": "pre_workout",
+      "benefits": "May reduce muscle soreness and support recovery during fasted training.",
+      "warnings": "Low evidence if protein intake is sufficient (1.6g/kg). May interfere with serotonin synthesis."
+    },
+    {
+      "name": "Glutamine",
+      "category": "Amino Acid",
+      "description": "Most abundant amino acid in the body. Supports gut health and immune function.",
+      "default_dosage": "5-10g",
+      "timing": "post_workout",
+      "benefits": "May support gut lining integrity and immune function during intense training.",
+      "warnings": "Limited evidence for muscle-building claims. Consider for gut health issues."
+    },
+    {
+      "name": "L-Carnitine",
+      "category": "Amino Acid",
+      "description": "Amino acid derivative that transports fatty acids into mitochondria for energy production.",
+      "default_dosage": "1-3g",
+      "timing": "pre_workout",
+      "benefits": "May support fat metabolism and exercise performance. Antioxidant properties.",
+      "warnings": "Take on empty stomach for better absorption. May cause fishy body odor at high doses."
+    },
+    {
+      "name": "Taurine",
+      "category": "Amino Acid",
+      "description": "Conditionally essential amino acid important for cardiovascular and neuromuscular function.",
+      "default_dosage": "1-3g",
+      "timing": "pre_workout",
+      "benefits": "May improve exercise performance, reduce cramping, and support heart health.",
+      "warnings": "Generally well tolerated. May interact with blood pressure medications."
+    },
+    {
+      "name": "Beta-Alanine",
+      "category": "Amino Acid",
+      "description": "Amino acid that increases muscle carnosine levels, buffering lactic acid during intense exercise.",
+      "default_dosage": "3.2-6.4g",
+      "timing": "pre_workout",
+      "benefits": "Improves endurance in high-intensity efforts lasting 1-4 minutes.",
+      "warnings": "Tingling sensation (paresthesia) is normal and harmless. Split doses to minimize."
+    },
+    {
+      "name": "Caffeine",
+      "category": "Stimulant",
+      "description": "Most widely consumed psychoactive substance. Powerful ergogenic aid.",
+      "default_dosage": "100-200mg",
+      "timing": "pre_workout",
+      "benefits": "Increases alertness, focus, and exercise performance. Reduces perceived exertion.",
+      "warnings": "Avoid after 2pm. Tolerance builds over time. Can cause anxiety and insomnia. Cycle off periodically."
+    },
+    {
+      "name": "Pre-Workout",
+      "category": "Pre-Workout",
+      "description": "Combination supplement typically containing caffeine, beta-alanine, citrulline, and other ingredients.",
+      "default_dosage": "1 scoop",
+      "timing": "pre_workout",
+      "benefits": "Convenient blend for energy, focus, and pump during workouts.",
+      "warnings": "Check caffeine content. Do not stack with additional caffeine. Start with half scoop to assess tolerance."
+    },
+    {
+      "name": "Ashwagandha",
+      "category": "Adaptogen",
+      "description": "Ayurvedic herb classified as an adaptogen. KSM-66 and Sensoril are standardized extracts.",
+      "default_dosage": "300-600mg",
+      "timing": "before_sleep",
+      "benefits": "Reduces cortisol and stress. May improve sleep, recovery, and testosterone in men.",
+      "warnings": "May interact with thyroid medications. Avoid if autoimmune condition without consulting doctor."
+    },
+    {
+      "name": "Rhodiola",
+      "category": "Adaptogen",
+      "description": "Adaptogenic herb used in traditional medicine for fatigue and mental performance.",
+      "default_dosage": "200-600mg",
+      "timing": "morning",
+      "benefits": "Reduces mental and physical fatigue. May improve mood and cognitive function.",
+      "warnings": "Take on empty stomach. May cause dizziness at high doses. Not for bedtime use."
+    },
+    {
+      "name": "Turmeric",
+      "category": "Herb",
+      "description": "Spice containing curcumin, a potent anti-inflammatory compound. Enhanced by piperine.",
+      "default_dosage": "500-1000mg",
+      "timing": "morning",
+      "benefits": "Powerful anti-inflammatory and antioxidant. Supports joint health and recovery.",
+      "warnings": "Must take with black pepper (piperine) for absorption. May interact with blood thinners."
+    },
+    {
+      "name": "Glucosamine",
+      "category": "Supplement",
+      "description": "Compound found naturally in cartilage. Widely used for joint health.",
+      "default_dosage": "1500mg",
+      "timing": "morning",
+      "benefits": "May reduce joint pain and slow cartilage degradation in osteoarthritis.",
+      "warnings": "May take 4-8 weeks to see effects. Shellfish-derived may cause allergic reactions."
+    },
+    {
+      "name": "Coenzyme Q10",
+      "category": "Vitamin",
+      "description": "Antioxidant compound essential for cellular energy production (ATP).",
+      "default_dosage": "100-200mg",
+      "timing": "morning",
+      "benefits": "Supports heart health, energy production, and antioxidant protection.",
+      "warnings": "Take with fat meal. Ubiquinol form is more bioavailable than ubiquinone."
+    },
+    {
+      "name": "Probiotics",
+      "category": "Supplement",
+      "description": "Beneficial bacteria that support gut microbiome diversity and digestive health.",
+      "default_dosage": "10-50 billion CFU",
+      "timing": "morning",
+      "benefits": "Improves digestion, immune function, and may support mental health via gut-brain axis.",
+      "warnings": "Refrigerate if required. Take on empty stomach. May cause initial bloating."
+    },
+    {
+      "name": "Vitamin B12",
+      "category": "Vitamin",
+      "description": "Water-soluble vitamin essential for nerve function and red blood cell formation.",
+      "default_dosage": "1000mcg",
+      "timing": "morning",
+      "benefits": "Supports energy metabolism, nerve health. Essential for vegans/vegetarians.",
+      "warnings": "Sublingual form absorbs best. Very safe even at high doses (excess excreted)."
+    },
+    {
+      "name": "Vitamin C",
+      "category": "Vitamin",
+      "description": "Water-soluble antioxidant vitamin essential for immune function and collagen synthesis.",
+      "default_dosage": "500-1000mg",
+      "timing": "morning",
+      "benefits": "Boosts immune system, enhances iron absorption, supports skin health.",
+      "warnings": "Split doses for better absorption. High doses may cause digestive upset."
+    },
+    {
+      "name": "Vitamin K2",
+      "category": "Vitamin",
+      "description": "Fat-soluble vitamin that directs calcium to bones and away from arteries. MK-7 form preferred.",
+      "default_dosage": "100-200mcg",
+      "timing": "morning",
+      "benefits": "Works synergistically with vitamin D for bone and cardiovascular health.",
+      "warnings": "Avoid if on blood thinners (warfarin). MK-7 has longest half-life."
+    },
+    {
+      "name": "Potassium",
+      "category": "Mineral",
+      "description": "Essential mineral and electrolyte for fluid balance, nerve signaling, and muscle contractions.",
+      "default_dosage": "99mg",
+      "timing": "morning",
+      "benefits": "Supports blood pressure regulation and muscle function.",
+      "warnings": "OTC supplements limited to 99mg due to safety concerns. Get rest from diet (bananas, potatoes)."
+    },
+    {
+      "name": "HMB",
+      "category": "Supplement",
+      "description": "Beta-hydroxy beta-methylbutyrate, a metabolite of leucine. Anti-catabolic supplement.",
+      "default_dosage": "3g",
+      "timing": "pre_workout",
+      "benefits": "May reduce muscle breakdown during intense training. More effective for beginners.",
+      "warnings": "Most effective in untrained individuals. Split into 1g doses 3x daily."
+    },
+    {
+      "name": "Melatonin",
+      "category": "Supplement",
+      "description": "Hormone naturally produced by the pineal gland that regulates sleep-wake cycle.",
+      "default_dosage": "0.5-5mg",
+      "timing": "before_sleep",
+      "benefits": "Improves sleep onset and quality. Useful for jet lag.",
+      "warnings": "Start with lowest dose (0.5-1mg). Take 30-60 min before bed. Do not drive after taking."
+    },
+    {
+      "name": "Collagen",
+      "category": "Protein",
+      "description": "Structural protein found in skin, bones, and connective tissue. Available as peptides.",
+      "default_dosage": "10-15g",
+      "timing": "morning",
+      "benefits": "Supports skin elasticity, joint health, and gut lining. Take with vitamin C for synthesis.",
+      "warnings": "Takes 4-12 weeks to see results. Type I/III for skin, Type II for joints."
+    },
+    {
+      "name": "Citrulline Malate",
+      "category": "Pre-Workout",
+      "description": "Amino acid that converts to arginine, increasing nitric oxide production for improved blood flow.",
+      "default_dosage": "6-8g",
+      "timing": "pre_workout",
+      "benefits": "Enhances pump, endurance, and recovery. Reduces muscle soreness.",
+      "warnings": "Take 30-60 min before exercise. 2:1 citrulline-to-malate ratio is standard."
+    },
+    {
+      "name": "Alpha-GPC",
+      "category": "Supplement",
+      "description": "Choline compound that crosses the blood-brain barrier. Precursor to acetylcholine.",
+      "default_dosage": "300-600mg",
+      "timing": "pre_workout",
+      "benefits": "May improve power output, cognitive function, and mind-muscle connection.",
+      "warnings": "Take on empty stomach for best absorption. May cause headache in sensitive individuals."
+    },
+    {
+      "name": "N-Acetyl Cysteine",
+      "category": "Supplement",
+      "description": "Antioxidant amino acid derivative. Precursor to glutathione, the body's master antioxidant.",
+      "default_dosage": "600-1200mg",
+      "timing": "morning",
+      "benefits": "Powerful antioxidant support, liver protection, respiratory health.",
+      "warnings": "Take on empty stomach. May interact with nitroglycerin and blood thinners."
+    },
+    {
+      "name": "L-Theanine",
+      "category": "Amino Acid",
+      "description": "Amino acid found in tea leaves. Promotes relaxation without drowsiness.",
+      "default_dosage": "100-200mg",
+      "timing": "before_sleep",
+      "benefits": "Reduces anxiety, improves focus when combined with caffeine. Promotes calm sleep.",
+      "warnings": "Very safe. Synergistic with caffeine for focused energy (2:1 theanine to caffeine)."
+    },
+    {
+      "name": "Psyllium Husk",
+      "category": "Supplement",
+      "description": "Soluble fiber supplement derived from Plantago ovata seeds.",
+      "default_dosage": "5-10g",
+      "timing": "morning",
+      "benefits": "Supports digestive health, regularity, and cholesterol management.",
+      "warnings": "Always take with plenty of water. May interfere with medication absorption - separate by 2 hours."
+    },
+    {
+      "name": "Eleuthero",
+      "category": "Adaptogen",
+      "description": "Also called Siberian Ginseng. Adaptogenic herb used for energy and endurance.",
+      "default_dosage": "300-1200mg",
+      "timing": "morning",
+      "benefits": "May improve endurance, reduce fatigue, and enhance immune function.",
+      "warnings": "May interact with blood pressure and diabetes medications. Not true ginseng."
+    }
+  ],
+  "interactions": [
+    {
+      "substance_a": "Iron",
+      "substance_b": "Calcium",
+      "severity": "high",
+      "description": "Calcium significantly inhibits iron absorption when taken together. Can reduce iron absorption by up to 60%.",
+      "recommendation": "Take iron at least 2 hours before or after calcium supplements."
+    },
+    {
+      "substance_a": "Iron",
+      "substance_b": "Zinc",
+      "severity": "moderate",
+      "description": "Iron and zinc compete for the same absorption pathways (DMT1 transporter). High-dose iron can reduce zinc absorption.",
+      "recommendation": "Separate by at least 2 hours. Take iron in the morning, zinc at night."
+    },
+    {
+      "substance_a": "Calcium",
+      "substance_b": "Zinc",
+      "severity": "moderate",
+      "description": "High-dose calcium (>800mg) can significantly reduce zinc absorption.",
+      "recommendation": "Take zinc supplements at least 2 hours apart from calcium."
+    },
+    {
+      "substance_a": "Iron",
+      "substance_b": "Caffeine",
+      "severity": "moderate",
+      "description": "Caffeine can reduce iron absorption by up to 40% when consumed with iron supplements.",
+      "recommendation": "Avoid coffee or tea within 1 hour of taking iron supplements."
+    },
+    {
+      "substance_a": "Iron",
+      "substance_b": "Vitamin C",
+      "severity": "low",
+      "description": "Vitamin C dramatically increases non-heme iron absorption (by 2-6x). This is generally beneficial but risky for people with hemochromatosis.",
+      "recommendation": "Take together to boost iron absorption. However, avoid if you have iron overload disorder."
+    },
+    {
+      "substance_a": "Calcium",
+      "substance_b": "Vitamin D",
+      "severity": "low",
+      "description": "Vitamin D enhances calcium absorption. This is a beneficial synergy, not a negative interaction.",
+      "recommendation": "This is a beneficial combination. Vitamin D helps your body absorb calcium more effectively."
+    },
+    {
+      "substance_a": "Fish Oil",
+      "substance_b": "Vitamin E",
+      "severity": "low",
+      "description": "High-dose fish oil can deplete vitamin E levels. Omega-3s are oxidized using vitamin E.",
+      "recommendation": "If taking high-dose fish oil (>3g), consider supplementing with vitamin E (100-200 IU)."
+    },
+    {
+      "substance_a": "Creatine",
+      "substance_b": "Caffeine",
+      "severity": "low",
+      "description": "Some studies suggest caffeine may blunt creatine's performance benefits, though evidence is mixed.",
+      "recommendation": "Avoid taking creatine directly with high-caffeine pre-workouts. Separate by 30-60 minutes."
+    },
+    {
+      "substance_a": "Whey Protein",
+      "substance_b": "Creatine",
+      "severity": "low",
+      "description": "No negative interaction. This is actually a beneficial combination for muscle recovery.",
+      "recommendation": "Safe to combine. Whey protein can improve creatine uptake due to insulin response."
+    },
+    {
+      "substance_a": "Ashwagandha",
+      "substance_b": "Thyroid Medication",
+      "severity": "high",
+      "description": "Ashwagandha may stimulate thyroid hormone production, potentially causing hyperthyroidism when combined with thyroid medication.",
+      "recommendation": "Consult your doctor before combining. Monitor thyroid levels if using both."
+    },
+    {
+      "substance_a": "Ashwagandha",
+      "substance_b": "Sedatives",
+      "severity": "moderate",
+      "description": "Ashwagandha may enhance the effects of sedative medications (benzodiazepines, barbiturates) causing excessive drowsiness.",
+      "recommendation": "Avoid combining with sedatives without medical supervision. May cause excessive sedation."
+    },
+    {
+      "substance_a": "Turmeric",
+      "substance_b": "Blood Thinners",
+      "severity": "high",
+      "description": "Turmeric/curcumin has antiplatelet effects and can increase bleeding risk when combined with anticoagulant medications.",
+      "recommendation": "Do not combine with warfarin, aspirin, or other blood thinners without doctor approval."
+    },
+    {
+      "substance_a": "Vitamin D",
+      "substance_b": "Thiazide Diuretics",
+      "severity": "high",
+      "description": "Thiazide diuretics increase calcium retention. Combined with vitamin D, this can lead to dangerously high calcium levels (hypercalcemia).",
+      "recommendation": "Monitor blood calcium levels if on thiazide diuretics and vitamin D supplements."
+    },
+    {
+      "substance_a": "Vitamin K2",
+      "substance_b": "Warfarin",
+      "severity": "high",
+      "description": "Vitamin K2 directly antagonizes warfarin's blood-thinning mechanism, potentially making the medication ineffective.",
+      "recommendation": "Do NOT take vitamin K2 if on warfarin. Consult your cardiologist."
+    },
+    {
+      "substance_a": "Magnesium",
+      "substance_b": "Blood Pressure Medication",
+      "severity": "moderate",
+      "description": "Magnesium can enhance the blood-pressure-lowering effects of antihypertensive medications, potentially causing hypotension.",
+      "recommendation": "Monitor blood pressure closely. May need medication dose adjustment."
+    },
+    {
+      "substance_a": "Magnesium",
+      "substance_b": "Antibiotics",
+      "severity": "moderate",
+      "description": "Magnesium can bind to certain antibiotics (tetracyclines, fluoroquinolones) in the gut, reducing their absorption.",
+      "recommendation": "Take antibiotics at least 2 hours before or 4-6 hours after magnesium."
+    },
+    {
+      "substance_a": "Zinc",
+      "substance_b": "Antibiotics",
+      "severity": "moderate",
+      "description": "Zinc can reduce absorption of quinolone and tetracycline antibiotics.",
+      "recommendation": "Separate zinc and antibiotic doses by at least 2 hours."
+    },
+    {
+      "substance_a": "Calcium",
+      "substance_b": "Thyroid Medication",
+      "severity": "high",
+      "description": "Calcium supplements can significantly reduce absorption of levothyroxine (Synthroid).",
+      "recommendation": "Take thyroid medication at least 4 hours before calcium supplements."
+    },
+    {
+      "substance_a": "Iron",
+      "substance_b": "Thyroid Medication",
+      "severity": "high",
+      "description": "Iron supplements can reduce absorption of levothyroxine.",
+      "recommendation": "Separate iron and thyroid medication by at least 4 hours."
+    },
+    {
+      "substance_a": "BCAA",
+      "substance_b": "L-DOPA",
+      "severity": "moderate",
+      "description": "BCAAs (especially valine) may compete with L-DOPA for transport across the blood-brain barrier.",
+      "recommendation": "If on L-DOPA medication, consult doctor before supplementing with BCAAs."
+    },
+    {
+      "substance_a": "Probiotics",
+      "substance_b": "Antibiotics",
+      "severity": "moderate",
+      "description": "Antibiotics kill beneficial bacteria along with harmful ones, reducing probiotic effectiveness.",
+      "recommendation": "Take probiotics at least 2 hours after antibiotics. Consider shelf-stable strains."
+    },
+    {
+      "substance_a": "Omega-3",
+      "substance_b": "Blood Thinners",
+      "severity": "moderate",
+      "description": "High-dose omega-3s (>3g) have mild antiplatelet effects that can increase bleeding risk with anticoagulants.",
+      "recommendation": "Keep omega-3 dose under 3g if on blood thinners. Monitor for unusual bruising."
+    },
+    {
+      "substance_a": "Grapefruit",
+      "substance_b": "Statins",
+      "severity": "high",
+      "description": "Grapefruit juice inhibits CYP3A4 enzyme, increasing statin levels to potentially dangerous concentrations.",
+      "recommendation": "Avoid grapefruit juice with statin medications."
+    },
+    {
+      "substance_a": "Caffeine",
+      "substance_b": "Ephedra",
+      "severity": "high",
+      "description": "Combination of caffeine and ephedra (ma huang) has been linked to serious cardiovascular events including heart attacks and strokes.",
+      "recommendation": "This combination is banned by the FDA. Never combine."
+    },
+    {
+      "substance_a": "Caffeine",
+      "substance_b": "Albuterol",
+      "severity": "moderate",
+      "description": "Both are stimulants. Combining can cause increased heart rate, jitteriness, and cardiac arrhythmias.",
+      "recommendation": "Limit caffeine intake if using albuterol inhalers. Monitor heart rate."
+    },
+    {
+      "substance_a": "Melatonin",
+      "substance_b": "Alcohol",
+      "severity": "moderate",
+      "description": "Alcohol enhances melatonin's sedative effects, potentially causing excessive drowsiness and respiratory depression.",
+      "recommendation": "Avoid combining. Can cause dangerously deep sedation."
+    },
+    {
+      "substance_a": "Vitamin D",
+      "substance_b": "Orlistat",
+      "severity": "moderate",
+      "description": "Orlistat (fat blocker) significantly reduces absorption of fat-soluble vitamins including vitamin D.",
+      "recommendation": "Take vitamin D at least 2 hours apart from orlistat. May need higher dose."
+    },
+    {
+      "substance_a": "Fish Oil",
+      "substance_b": "Aspirin",
+      "severity": "low",
+      "description": "Both have mild blood-thinning effects. Combination at normal doses is usually safe but may increase bleeding time.",
+      "recommendation": "Generally safe at standard doses. Monitor for unusual bruising or bleeding."
+    },
+    {
+      "substance_a": "Coenzyme Q10",
+      "substance_b": "Blood Thinners",
+      "severity": "moderate",
+      "description": "CoQ10 may reduce the effectiveness of warfarin due to vitamin K-like activity.",
+      "recommendation": "Consult doctor if on warfarin. May need INR monitoring."
+    },
+    {
+      "substance_a": "Zinc",
+      "substance_b": "Copper",
+      "severity": "moderate",
+      "description": "High-dose zinc (>40mg/day) depletes copper by inducing metallothionein, which preferentially binds copper.",
+      "recommendation": "If supplementing zinc >30mg daily, add 1-2mg copper supplement."
+    },
+    {
+      "substance_a": "Psyllium Husk",
+      "substance_b": "Any Medication",
+      "severity": "moderate",
+      "description": "Psyllium can bind to medications in the gut and reduce their absorption significantly.",
+      "recommendation": "Take all medications at least 2 hours before or after psyllium husk."
+    },
+    {
+      "substance_a": "Glucosamine",
+      "substance_b": "Warfarin",
+      "severity": "moderate",
+      "description": "Glucosamine may enhance the anticoagulant effect of warfarin, increasing INR and bleeding risk.",
+      "recommendation": "Monitor INR closely if taking glucosamine with warfarin. Consult doctor."
+    },
+    {
+      "substance_a": "L-Carnitine",
+      "substance_b": "Thyroid Hormone",
+      "severity": "moderate",
+      "description": "L-Carnitine may interfere with thyroid hormone action, potentially reducing effectiveness of thyroid medication.",
+      "recommendation": "Separate doses by 2-4 hours. Monitor thyroid levels."
+    },
+    {
+      "substance_a": "N-Acetyl Cysteine",
+      "substance_b": "Nitroglycerin",
+      "severity": "high",
+      "description": "NAC combined with nitroglycerin can cause severe hypotension (dangerously low blood pressure) and headaches.",
+      "recommendation": "Do not combine without medical supervision."
+    },
+    {
+      "substance_a": "Vitamin C",
+      "substance_b": "Aluminum-containing Antacids",
+      "severity": "moderate",
+      "description": "Vitamin C increases aluminum absorption from antacids, potentially harmful for kidney patients.",
+      "recommendation": "Separate doses by 2 hours. Especially important for those with kidney disease."
+    },
+    {
+      "substance_a": "Magnesium",
+      "substance_b": "Bisphosphonates",
+      "severity": "moderate",
+      "description": "Magnesium can reduce absorption of bisphosphonates (osteoporosis medications like alendronate).",
+      "recommendation": "Take bisphosphonate first thing in morning, magnesium at bedtime."
+    },
+    {
+      "substance_a": "Caffeine",
+      "substance_b": "Lithium",
+      "severity": "moderate",
+      "description": "Caffeine increases lithium excretion, potentially reducing its therapeutic effect.",
+      "recommendation": "Maintain consistent caffeine intake while on lithium. Changes in caffeine can affect lithium levels."
+    },
+    {
+      "substance_a": "Caffeine",
+      "substance_b": "Theophylline",
+      "severity": "high",
+      "description": "Caffeine and theophylline are chemically similar. Caffeine can increase theophylline to toxic levels.",
+      "recommendation": "Avoid or strictly limit caffeine if taking theophylline."
+    },
+    {
+      "substance_a": "Vitamin E",
+      "substance_b": "Blood Thinners",
+      "severity": "moderate",
+      "description": "High-dose vitamin E (>400 IU) may increase bleeding risk when combined with anticoagulants.",
+      "recommendation": "Keep vitamin E under 400 IU if on blood thinners."
+    },
+    {
+      "substance_a": "Saw Palmetto",
+      "substance_b": "Blood Thinners",
+      "severity": "moderate",
+      "description": "Saw palmetto may have mild anticoagulant properties that can add to blood thinner effects.",
+      "recommendation": "Consult doctor if on warfarin or other anticoagulants."
+    },
+    {
+      "substance_a": "HMB",
+      "substance_b": "Statins",
+      "severity": "low",
+      "description": "Both affect the HMG-CoA reductase pathway. Theoretical concern but no clinical significance at standard doses.",
+      "recommendation": "Generally safe combination. No dosage adjustment needed."
+    },
+    {
+      "substance_a": "Collagen",
+      "substance_b": "Blood Thinners",
+      "severity": "low",
+      "description": "Collagen supplements may theoretically affect platelet function. Very mild effect at standard doses.",
+      "recommendation": "Usually safe. Inform your doctor if you take collagen supplements before surgery."
+    },
+    {
+      "substance_a": "Probiotics",
+      "substance_b": "Immunosuppressants",
+      "severity": "high",
+      "description": "Live probiotic bacteria may cause infections in immunocompromised individuals.",
+      "recommendation": "Do not use live probiotics if on immunosuppressant therapy without doctor approval."
+    },
+    {
+      "substance_a": "Iron",
+      "substance_b": "Milk/Antacids",
+      "severity": "moderate",
+      "description": "Dairy products and antacids containing calcium significantly reduce non-heme iron absorption.",
+      "recommendation": "Take iron with water and vitamin C, away from dairy and calcium-based antacids."
+    },
+    {
+      "substance_a": "Ashwagandha",
+      "substance_b": "Immunosuppressants",
+      "severity": "moderate",
+      "description": "Ashwagandha may stimulate immune function, potentially counteracting immunosuppressive therapy.",
+      "recommendation": "Avoid ashwagandha if on immunosuppressant medications."
+    },
+    {
+      "substance_a": "Glutamine",
+      "substance_b": "Anticonvulsants",
+      "severity": "low",
+      "description": "Theoretical concern that glutamine may be converted to glutamate, potentially lowering seizure threshold.",
+      "recommendation": "Consult neurologist if on anti-epileptic medications."
+    },
+    {
+      "substance_a": "Potassium",
+      "substance_b": "ACE Inhibitors",
+      "severity": "high",
+      "description": "ACE inhibitors (lisinopril, enalapril) increase potassium levels. Supplementing potassium can cause hyperkalemia.",
+      "recommendation": "Do not supplement potassium without doctor approval if on ACE inhibitors."
+    },
+    {
+      "substance_a": "Potassium",
+      "substance_b": "ARBs",
+      "severity": "high",
+      "description": "Angiotensin receptor blockers increase potassium retention. Additional supplementation risks hyperkalemia.",
+      "recommendation": "Do not supplement potassium without doctor approval if on ARBs (losartan, valsartan)."
+    },
+    {
+      "substance_a": "Rhodiola",
+      "substance_b": "Antidepressants (SSRIs)",
+      "severity": "moderate",
+      "description": "Rhodiola may affect serotonin levels, potentially interacting with SSRIs and increasing risk of serotonin syndrome.",
+      "recommendation": "Consult psychiatrist before combining with SSRI medications."
+    },
+    {
+      "substance_a": "Turmeric",
+      "substance_b": "Diabetes Medication",
+      "severity": "moderate",
+      "description": "Turmeric may lower blood sugar, potentially causing hypoglycemia when combined with diabetes medications.",
+      "recommendation": "Monitor blood sugar closely if combining turmeric with diabetes medication."
+    },
+    {
+      "substance_a": "Citrulline Malate",
+      "substance_b": "Blood Pressure Medication",
+      "severity": "moderate",
+      "description": "Citrulline increases nitric oxide, which lowers blood pressure. May cause additive hypotensive effect.",
+      "recommendation": "Monitor blood pressure. May need medication adjustment."
+    }
+  ]
+}

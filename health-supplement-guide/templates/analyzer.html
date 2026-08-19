@@ -1,0 +1,174 @@
+{% extends "base.html" %}
+{% block title %}تحليل الدواء بالصورة - دليلي الدوائي{% endblock %}
+{% block content %}
+<div class="space-y-8">
+    <div>
+        <h1 class="text-3xl font-bold text-white mb-2">&#128247; تحليل الدواء بالصورة</h1>
+        <p class="text-gray-400">ارفع صورة لعلبة الدواء أو الشريط وسنحللها باستخدام الذكاء الاصطناعي</p>
+    </div>
+
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+        <div class="bg-dark-800 rounded-xl border border-dark-600 p-6">
+            <h2 class="text-xl font-bold text-white mb-4">ارفع صورة الدواء</h2>
+            <form method="POST" enctype="multipart/form-data" action="{{ url_for('analyzer.analyze') }}">
+                <div class="space-y-4">
+                    <div class="border-2 border-dashed border-dark-600 rounded-xl p-8 text-center hover:border-accent-500/50 transition">
+                        <input type="file" name="medicine_image" accept="image/*" id="imageInput"
+                            class="hidden" onchange="previewImage(this)">
+                        <label for="imageInput" class="cursor-pointer">
+                            <div class="text-4xl mb-3" id="uploadIcon">&#128247;</div>
+                            <p class="text-gray-400 mb-2" id="uploadText">اضغط هنا لاختيار صورة الدواء</p>
+                            <p class="text-gray-600 text-xs">JPG, PNG, WEBP - حد أقصى 10 ميغابايت</p>
+                        </label>
+                    </div>
+                    <div id="imagePreview" class="hidden">
+                        <img id="previewImg" class="w-full rounded-lg border border-dark-600" alt="معاينة الصورة">
+                    </div>
+                    <button type="submit" class="w-full bg-health-purple hover:bg-health-purple/80 text-white px-6 py-3 rounded-lg font-bold text-lg transition flex items-center justify-center gap-2">
+                        <span>&#129504;</span> تحليل الدواء
+                    </button>
+                </div>
+            </form>
+        </div>
+
+        {% if result %}
+        <div class="bg-dark-800 rounded-xl border border-dark-600 p-6">
+            <h2 class="text-xl font-bold text-white mb-4">نتائج التحليل</h2>
+            {% if result.result %}
+            <div class="space-y-4">
+                <div class="bg-dark-700 rounded-lg p-4 border border-dark-600">
+                    <h3 class="font-bold text-accent-400 mb-2">المعلومات الأساسية</h3>
+                    <div class="space-y-2 text-sm">
+                        <div>
+                            <span class="text-gray-500">الاسم التجاري:</span>
+                            <span class="text-white font-bold">{{ result.result.name_arabic }}</span>
+                        </div>
+                        <div>
+                            <span class="text-gray-500">الاسم العلمي:</span>
+                            <span class="text-white">{{ result.result.name_scientific }}</span>
+                        </div>
+                        <div>
+                            <span class="text-gray-500">الشركة المصنعة:</span>
+                            <span class="text-white">{{ result.result.manufacturer }}</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bg-dark-700 rounded-lg p-4 border border-dark-600">
+                    <h3 class="font-bold text-health-blue mb-2">دواعي الاستعمال</h3>
+                    <p class="text-gray-300 text-sm">{{ result.result.indications }}</p>
+                </div>
+
+                <div class="bg-dark-700 rounded-lg p-4 border border-dark-600">
+                    <h3 class="font-bold text-health-orange mb-2">الجرعة والطريقة</h3>
+                    <p class="text-gray-300 text-sm">{{ result.result.dosage }}</p>
+                </div>
+
+                <div class="bg-dark-700 rounded-lg p-4 border border-dark-600">
+                    <h3 class="font-bold text-red-400 mb-2">&#9888;&#65039; التحذيرات</h3>
+                    {% if result.result.warnings is mapping %}
+                    <div class="space-y-2 text-sm">
+                        {% if result.result.warnings.pregnancy %}
+                        <div>
+                            <span class="text-pink-400 font-medium">الحوامل والمرضعات:</span>
+                            <span class="text-gray-300">{{ result.result.warnings.pregnancy }}</span>
+                        </div>
+                        {% endif %}
+                        {% if result.result.warnings.pressure %}
+                        <div>
+                            <span class="text-red-400 font-medium">مرضى الضغط:</span>
+                            <span class="text-gray-300">{{ result.result.warnings.pressure }}</span>
+                        </div>
+                        {% endif %}
+                        {% if result.result.warnings.diabetes %}
+                        <div>
+                            <span class="text-yellow-400 font-medium">مرضى السكري:</span>
+                            <span class="text-gray-300">{{ result.result.warnings.diabetes }}</span>
+                        </div>
+                        {% endif %}
+                        {% if result.result.warnings.kidney %}
+                        <div>
+                            <span class="text-health-purple font-medium">مرضى الكلى:</span>
+                            <span class="text-gray-300">{{ result.result.warnings.kidney }}</span>
+                        </div>
+                        {% endif %}
+                        {% if result.result.warnings.general %}
+                        <div>
+                            <span class="text-gray-400 font-medium">تحذيرات عامة:</span>
+                            <span class="text-gray-300">{{ result.result.warnings.general }}</span>
+                        </div>
+                        {% endif %}
+                    </div>
+                    {% else %}
+                    <p class="text-gray-300 text-sm">{{ result.result.warnings }}</p>
+                    {% endif %}
+                </div>
+
+                <div class="bg-dark-700 rounded-lg p-4 border border-dark-600">
+                    <h3 class="font-bold text-yellow-400 mb-2">التأثيرات الجانبية</h3>
+                    <p class="text-gray-300 text-sm">{{ result.result.side_effects }}</p>
+                </div>
+
+                <div class="bg-dark-700 rounded-lg p-4 border border-dark-600">
+                    <h3 class="font-bold text-accent-400 mb-2">&#128230; التخزين والصلاحية</h3>
+                    <p class="text-gray-300 text-sm">{{ result.result.storage }}</p>
+                </div>
+
+                {% if result.result.interactions %}
+                <div class="bg-dark-700 rounded-lg p-4 border border-dark-600">
+                    <h3 class="font-bold text-health-purple mb-2">التفاعلات الدوائية</h3>
+                    <p class="text-gray-300 text-sm">{{ result.result.interactions }}</p>
+                </div>
+                {% endif %}
+
+                {% if result.result.important_note %}
+                <div class="bg-red-500/10 rounded-lg p-4 border border-red-500/20">
+                    <h3 class="font-bold text-red-400 mb-2">&#128680; ملاحظة هامة</h3>
+                    <p class="text-gray-300 text-sm">{{ result.result.important_note }}</p>
+                </div>
+                {% endif %}
+            </div>
+            {% else %}
+            <div class="bg-yellow-500/10 rounded-lg p-4 border border-yellow-500/20">
+                <p class="text-yellow-300">{{ result.message }}</p>
+            </div>
+            {% endif %}
+        </div>
+        {% else %}
+        <div class="bg-dark-800 rounded-xl border border-dark-600 p-6">
+            <div class="text-center py-12">
+                <div class="text-6xl mb-4">&#129504;</div>
+                <h3 class="text-lg font-bold text-white mb-2">انتظر تحليل الصورة</h3>
+                <p class="text-gray-500">ارفع صورة لعلبة الدواء وسن乡土حللها لك</p>
+                <div class="mt-6 space-y-2 text-sm text-gray-600">
+                    <p>&#10003; الاسم التجاري والعلمي</p>
+                    <p>&#10003; دواعي الاستعمال والجرعة</p>
+                    <p>&#10003; تحذيرات الحالات المزمنة</p>
+                    <p>&#10003; التأثيرات الجانبية</p>
+                    <p>&#10003; نصائح التخزين والصلاحية</p>
+                </div>
+            </div>
+        </div>
+        {% endif %}
+    </div>
+</div>
+
+<script>
+function previewImage(input) {
+    const preview = document.getElementById('imagePreview');
+    const previewImg = document.getElementById('previewImg');
+    const uploadIcon = document.getElementById('uploadIcon');
+    const uploadText = document.getElementById('uploadText');
+    if (input.files && input.files[0]) {
+        const reader = new FileReader();
+        reader.onload = function(e) {
+            previewImg.src = e.target.result;
+            preview.classList.remove('hidden');
+            uploadIcon.textContent = '✓';
+            uploadText.textContent = input.files[0].name;
+        };
+        reader.readAsDataURL(input.files[0]);
+    }
+}
+</script>
+{% endblock %}

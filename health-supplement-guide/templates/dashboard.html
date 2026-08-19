@@ -1,0 +1,127 @@
+{% extends "base.html" %}
+{% block title %}الرئيسية - دليلي الدوائي{% endblock %}
+{% block content %}
+<div class="space-y-8">
+    <div class="text-center">
+        <h1 class="text-3xl font-bold text-white mb-2">مرحباً، {{ current_user.username }}</h1>
+        <p class="text-gray-400">لوحة التحكم الخاصة بك في دليلي الدوائي</p>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+        <div class="bg-dark-800 rounded-xl p-6 border border-dark-600 card-hover">
+            <div class="flex items-center gap-3">
+                <div class="w-12 h-12 rounded-lg bg-accent-500/20 flex items-center justify-center">
+                    <span class="text-accent-400 text-xl">&#128138;</span>
+                </div>
+                <div>
+                    <p class="text-2xl font-bold text-white">{{ supplement_count }}</p>
+                    <p class="text-sm text-gray-400">مكمل نشط</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="bg-dark-800 rounded-xl p-6 border border-dark-600 card-hover">
+            <div class="flex items-center gap-3">
+                <div class="w-12 h-12 rounded-lg bg-health-blue/20 flex items-center justify-center">
+                    <span class="text-health-blue text-xl">&#128218;</span>
+                </div>
+                <div>
+                    <p class="text-2xl font-bold text-white">{{ category_count }}</p>
+                    <p class="text-sm text-gray-400">فئة مختلفة</p>
+                </div>
+            </div>
+        </div>
+
+        <a href="{{ url_for('interactions.check_interactions') }}" class="bg-dark-800 rounded-xl p-6 border border-dark-600 card-hover block">
+            <div class="flex items-center gap-3">
+                <div class="w-12 h-12 rounded-lg bg-health-purple/20 flex items-center justify-center">
+                    <span class="text-health-purple text-xl">&#9888;&#65039;</span>
+                </div>
+                <div>
+                    <p class="text-lg font-bold text-white">فحص التفاعلات</p>
+                    <p class="text-sm text-gray-400">تحقق من التفاعلات الدوائية</p>
+                </div>
+            </div>
+        </a>
+    </div>
+
+    <div class="bg-dark-800 rounded-xl border border-dark-600 p-6">
+        <h2 class="text-xl font-bold text-white mb-4">مكملاتي الحالية</h2>
+        {% if user_supplements %}
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3">
+            {% for us in user_supplements %}
+            {% if us.supplement %}
+            <div class="bg-dark-700 rounded-lg p-4 border border-dark-600 card-hover">
+                <div class="flex items-start justify-between">
+                    <div>
+                        <h3 class="font-bold text-white">{{ us.supplement.name }}</h3>
+                        <span class="inline-block mt-1 px-2 py-0.5 rounded text-xs font-medium
+                            {% if us.supplement.category == 'فيتامينات' %}bg-accent-500/20 text-accent-300
+                            {% elif us.supplement.category == 'معادن' %}bg-health-blue/20 text-blue-300
+                            {% elif us.supplement.category == 'بروتين' %}bg-health-orange/20 text-orange-300
+                            {% elif us.supplement.category == 'أحماض أمينية' %}bg-health-purple/20 text-purple-300
+                            {% elif us.supplement.category == 'مكيفات' %}bg-health-pink/20 text-pink-300
+                            {% else %}bg-dark-600 text-gray-300{% endif %}">
+                            {{ us.supplement.category }}
+                        </span>
+                        {% if us.custom_dosage %}
+                        <p class="text-sm text-gray-400 mt-1">الجرعة: {{ us.custom_dosage }}</p>
+                        {% elif us.supplement.default_dosage %}
+                        <p class="text-sm text-gray-400 mt-1">الجرعة: {{ us.supplement.default_dosage }}</p>
+                        {% endif %}
+                    </div>
+                    <form method="POST" action="{{ url_for('supplements.remove_supplement', us_id=us.id) }}" class="flex-shrink-0">
+                        <button type="submit" class="text-red-400 hover:text-red-300 text-sm transition" onclick="return confirm('هل أنت متأكد من إزالة هذا المكمل؟')">
+                            &#10005;
+                        </button>
+                    </form>
+                </div>
+            </div>
+            {% endif %}
+            {% endfor %}
+        </div>
+        {% else %}
+        <div class="text-center py-8">
+            <p class="text-gray-500 text-lg mb-4">لم تُضف أي مكملات بعد</p>
+            <a href="{{ url_for('supplements.list_supplements') }}" class="inline-block bg-accent-500 hover:bg-accent-600 text-white px-6 py-2 rounded-lg font-medium transition">
+                أضف مكملاتك الآن
+            </a>
+        </div>
+        {% endif %}
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+        <a href="{{ url_for('interactions.check_interactions') }}" class="bg-dark-800 rounded-xl border border-dark-600 p-6 card-hover block hover:border-health-purple/50 transition">
+            <div class="flex items-center gap-3">
+                <span class="text-3xl">&#128269;</span>
+                <div>
+                    <h3 class="font-bold text-white">فحص التفاعلات</h3>
+                    <p class="text-sm text-gray-400">تحقق من التفاعلات بين مكملاتك</p>
+                </div>
+            </div>
+        </a>
+        <a href="{{ url_for('schedule.daily_schedule') }}" class="bg-dark-800 rounded-xl border border-dark-600 p-6 card-hover block hover:border-health-orange/50 transition">
+            <div class="flex items-center gap-3">
+                <span class="text-3xl">&#128197;</span>
+                <div>
+                    <h3 class="font-bold text-white">الجدول اليومي</h3>
+                    <p class="text-sm text-gray-400">جدول تناول مكملاتك اليومي</p>
+                </div>
+            </div>
+        </a>
+    </div>
+
+    <div class="bg-gradient-to-l from-health-purple/10 to-accent-500/10 rounded-xl border border-health-purple/20 p-6">
+        <div class="flex items-center gap-3">
+            <span class="text-3xl">&#128247;</span>
+            <div>
+                <h3 class="font-bold text-white">تحليل الدواء بالصورة</h3>
+                <p class="text-sm text-gray-400">ارفع صورة لعلبة الدواء وس𖥡حللها باستخدام الذكاء الاصطناعي</p>
+            </div>
+            <a href="{{ url_for('analyzer.analyze') }}" class="mr-auto bg-health-purple hover:bg-health-purple/80 text-white px-4 py-2 rounded-lg text-sm font-medium transition">
+                ابدأ التحليل
+            </a>
+        </div>
+    </div>
+</div>
+{% endblock %}
